@@ -40,6 +40,7 @@ node {
 //       }      
 //    }      
      
+     
 
     stage('Run playbook in ansible'){
       sshagent(['dani']) {
