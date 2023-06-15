@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Deploy
+  name: deploy
 spec:
   minReadySeconds: 10
   replicas: 2
@@ -34,6 +34,10 @@ spec:
     app: springpetclinic
   ports:
     - protocol: TCP
-      port: 8080
+      port: 8081
       targetPort: 8080
+
   type: LoadBalancer
+  externalIPs:
+    - 54.65.255.25
+
