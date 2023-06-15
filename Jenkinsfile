@@ -32,15 +32,15 @@ node {
       }
    }
 
-//    stage('Send Deployment.yaml to k8s Cluster'){
-//       sshagent(['k8s']) {
-//       sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.46.59'
-//       sh 'scp /var/lib/jenkins/workspace/pipeline/* ubuntu@54.65.255.25:/home/ubuntu/'
-//       sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.65.255.25 whoami'
-//       }      
-//    }      
+   stage('Send Deployment.yaml to k8s Cluster'){
+      sshagent(['k8s']) {
+      sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.65.255.25'
+      sh 'scp /var/lib/jenkins/workspace/pipeline/* ubuntu@54.65.255.25:/home/ubuntu/'
+      sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.65.255.25 whoami'
+      }      
+   }      
      
-     
+
 
     stage('Run playbook in ansible'){
       sshagent(['dani']) {
